@@ -29,7 +29,7 @@ import data.*;
 
 
 @SuppressWarnings("deprecation")
-@Manifest(name = "pSmelter", description = "Your AIO Smelting Experience", authors = {"Piers"}, version = 1.1)
+@Manifest(name = "pSmelter", description = "Your AIO Smelting Experience. Soon to enable Smithing bars!", authors = {"Piers"}, version = 1.2)
 public class Smelter extends PollingScript implements PaintListener, MessageListener {
     
    // Data \\
@@ -41,9 +41,11 @@ public class Smelter extends PollingScript implements PaintListener, MessageList
     
     public static String state = "Setting up...";
     public static String selected = "Selecting...";
+    public static String selectedLocation = "Selecting...";
     private String runTime;
     
     public static Bar bar = Bar.BRONZE;
+    public static Location location = Location.AL_KHARID;
     
     private Tile tile;
     private final ArrayList<Node> nodes = new ArrayList<>();
@@ -82,11 +84,11 @@ public class Smelter extends PollingScript implements PaintListener, MessageList
 	tile.getMatrix(ctx).draw(g);
 	Color gp = new Color(0f, 0f, 0f, .5f); //0red, 0blue, 0 green, 20% opacity
 	g.setColor(gp);
-	g.fillRoundRect(1, 1, 155, 195, 2, 2);
+	g.fillRoundRect(1, 1, 155, 205, 2, 2);
 	
 	// Foreground Text \\
 	g.setColor(Color.ORANGE);
-	g.drawString("Please submit proggies. More locations to be added this week", 200, 50);
+	g.drawString("Added Edgeville + Fally support. Let me know if functionality issues. Remember to ZOOM in a lot!", 200, 50);
 	g.setFont(new Font("Tahoma", Font.PLAIN, 13));
 	g.drawString("Runtime: " +runTime, 5, 45);
 	g.drawString("Current Level: " +realLvl, 5, 65);
@@ -95,15 +97,16 @@ public class Smelter extends PollingScript implements PaintListener, MessageList
 	g.drawString("" +state, 5, 125);
 	g.drawString("FPS: " +fps, 5, 145);
 	g.drawString("Type: " +selected, 5, 165);
+	g.drawString("Location: " +selectedLocation, 5, 185);
 	g.setFont(new Font("Tahoma", Font.BOLD, 14));
-	g.drawString("pSmelter v1.1", 25, 15);
+	g.drawString("pSmelter v1.2", 25, 15);
 	g.drawLine(15, 25, 140, 25);
-	progressbar.drawProgressBar(g, 8, 175, 140, 10, Color.BLACK, Color.YELLOW, Color.RED, 10, 10, progressbar.getPercentToNextLevel(Skills.SMITHING));
+	progressbar.drawProgressBar(g, 8, 195, 140, 10, Color.BLACK, Color.YELLOW, Color.RED, 10, 10, progressbar.getPercentToNextLevel(Skills.SMITHING));
 	
 	// Mouse + Background \\
 	g.setColor(Color.BLACK);
 	g.setStroke(new BasicStroke(2));
-	g.drawRoundRect(1, 1, 155, 195, 2, 2);
+	g.drawRoundRect(1, 1, 155, 205, 2, 2);
 	g.drawLine(ctx.mouse.getLocation().x, ctx.mouse.getLocation().y - 7, ctx.mouse.getLocation().x, ctx.mouse.getLocation().y + 7);
 	g.drawLine(ctx.mouse.getLocation().x - 7, ctx.mouse.getLocation().y, ctx.mouse.getLocation().x + 7, ctx.mouse.getLocation().y);
     }
@@ -125,6 +128,9 @@ public class Smelter extends PollingScript implements PaintListener, MessageList
     public void messaged(MessageEvent arg0) {
         final String barsMade = arg0.getMessage().toLowerCase();
         if (barsMade.contains("you retrieve a")) {
+            smelted++;
+        }
+        if(barsMade.contains("the magic of the varrock armour")) {
             smelted++;
         }
     }
