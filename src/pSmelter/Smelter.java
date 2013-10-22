@@ -29,7 +29,7 @@ import data.*;
 
 
 @SuppressWarnings("deprecation")
-@Manifest(name = "pSmelter", description = "Your AIO Smithing Experience", authors = {"Piers"}, version = 1.0)
+@Manifest(name = "pSmelter", description = "Your AIO Smelting Experience", authors = {"Piers"}, version = 1.1)
 public class Smelter extends PollingScript implements PaintListener, MessageListener {
     
    // Data \\
@@ -86,6 +86,7 @@ public class Smelter extends PollingScript implements PaintListener, MessageList
 	
 	// Foreground Text \\
 	g.setColor(Color.ORANGE);
+	g.drawString("Please submit proggies. More locations to be added this week", 200, 50);
 	g.setFont(new Font("Tahoma", Font.PLAIN, 13));
 	g.drawString("Runtime: " +runTime, 5, 45);
 	g.drawString("Current Level: " +realLvl, 5, 65);
@@ -95,7 +96,7 @@ public class Smelter extends PollingScript implements PaintListener, MessageList
 	g.drawString("FPS: " +fps, 5, 145);
 	g.drawString("Type: " +selected, 5, 165);
 	g.setFont(new Font("Tahoma", Font.BOLD, 14));
-	g.drawString("pSmelter v1.0", 25, 15);
+	g.drawString("pSmelter v1.1", 25, 15);
 	g.drawLine(15, 25, 140, 25);
 	progressbar.drawProgressBar(g, 8, 175, 140, 10, Color.BLACK, Color.YELLOW, Color.RED, 10, 10, progressbar.getPercentToNextLevel(Skills.SMITHING));
 	

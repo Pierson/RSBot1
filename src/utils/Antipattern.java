@@ -21,13 +21,13 @@ public class Antipattern extends MethodProvider{
 	
 	case 1:
 	    Smelter.state = "Adjusting Camera Angle";
-	    ctx.camera.setAngle(Random.nextInt(20, 85));
+	    ctx.camera.setAngle(Random.nextInt(20, 150));
 	    sleep(800, 1500);
 	    break;
 	    
 	case 2:
 	    Smelter.state = "Adjusting Camera Pitch";
-	    ctx.camera.setPitch(Random.nextInt(5, 80));
+	    ctx.camera.setPitch(Random.nextInt(45, 80));
 	    sleep(800, 1700);
 	    break;
 	    

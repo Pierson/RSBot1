@@ -28,11 +28,13 @@ public class Banking extends Node {
         	    Smelter.state = "Depositing Inventory";
         	}
             }
-            Smelter.state = "Withdrawing First Ore";
-            if(ctx.bank.withdraw(Smelter.bar.getFirstIngredient(), Smelter.bar.getWithdrawAmt())) {
-        	Smelter.state = "Withdrawing Second Ore";
-        	if(ctx.bank.withdraw(Smelter.bar.getSecondIngredient(), Bank.Amount.ALL)) {
-        	    ctx.bank.close();
+            if(ctx.backpack.isEmpty()) {
+        	Smelter.state = "Withdrawing First Ore";
+        	if(ctx.bank.withdraw(Smelter.bar.getFirstIngredient(), Smelter.bar.getWithdrawAmt())) {
+        	    Smelter.state = "Withdrawing Second Ore";
+        	    if(ctx.bank.withdraw(Smelter.bar.getSecondIngredient(), Bank.Amount.ALL)) {
+        		ctx.bank.close();
+        	    }
         	}
             }
         }
