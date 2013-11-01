@@ -4,8 +4,8 @@ import org.powerbot.script.methods.MethodContext;
 import org.powerbot.script.util.Random;
 
 import pSoftener.Softener;
+import path.Path;
 
-import data.Path;
 
 import util.Node;
 

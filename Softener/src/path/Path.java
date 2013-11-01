@@ -1,4 +1,4 @@
-package data;
+package path;
 
 import org.powerbot.script.wrappers.Tile;
 
