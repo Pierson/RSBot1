@@ -33,7 +33,7 @@ import utils.Node;
 
 
 @SuppressWarnings("deprecation")
-@Manifest(name = "Bone Burier", description = "Buries bones and banks!", authors = {"Piers"}, version = 1.0)
+@Manifest(name = "Bone Burier", description = "Buries bones and banks!", authors = {"Piers"}, version = 1.1)
 public class PBurier extends PollingScript implements PaintListener, MessageListener {
     
     private final ArrayList<Node> nodes = new ArrayList<>();
@@ -94,7 +94,7 @@ public class PBurier extends PollingScript implements PaintListener, MessageList
 	g.drawString("FPS: " +fps, 5, 145);
 	g.drawString("Type: " +selected +" BONES", 5, 165);
 	g.setFont(new Font("Tahoma", Font.BOLD, 14));
-	g.drawString("Bone Burier v1.0", 25, 15);
+	g.drawString("Bone Burier v1.1", 25, 15);
 	g.drawLine(15, 25, 140, 25);
 	progressbar.drawProgressBar(g, 8, 170, 140, 10, Color.BLACK, Color.YELLOW, Color.RED, 10, 10, progressbar.getPercentToNextLevel(Skills.PRAYER));
 	

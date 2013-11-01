@@ -20,7 +20,7 @@ public class Bury extends Node {
 
     @Override
     public void execute() {
-	PBurier.status = "Buruing Bones...";
+	PBurier.status = "Burying Bones...";
 	for(Item bone : ctx.backpack.select().id(PBurier.bone.getBone())) {
 	    if(bone.interact("Bury")) {
 		sleep(200, 1300);

@@ -19,7 +19,7 @@ public class ProgressBar {
     public void drawProgressBar(Graphics2D g1, final int x, final int y, final int width, final int height, final Color background, final Color main, final Color progress, final int arcWidth, final int arcHeight, int percentage) {
         
         Graphics2D g = (Graphics2D) g1;
-        percentage = getPercentToNextLevel(Skills.SMITHING);
+        percentage = getPercentToNextLevel(Skills.PRAYER);
         final GradientPaint first = new GradientPaint(x, y, Color.CYAN, x, y + height, main);
         final GradientPaint second = new GradientPaint(x, y, Color.ORANGE, x, y + height, progress);
         
