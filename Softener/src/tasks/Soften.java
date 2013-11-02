@@ -32,11 +32,13 @@ public class Soften extends Node {
 	Softener.status = "Pressing button";
 	if(button.click()) {
 	    sleep(600, 1600);
-	    Softener.status = "Softening";
-	    Timer t = new Timer(3000);
-	    while(t.isRunning() && ctx.players.local().getAnimation() == 11490) {
-		sleep(50, 120);
-		antipattern.antiban();
+	    Softener.status = "Softening Clay";
+	    Timer t = new Timer(2000);
+	    while(t.isRunning()) {
+		if(ctx.players.local().getAnimation() == 11490) {
+		    antipattern.antiban();
+		    t.reset();
+		}
 	    }
 	}
     }

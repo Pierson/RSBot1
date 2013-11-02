@@ -17,9 +17,6 @@ public class BankWithdraw extends Node{
 
     @Override
     public boolean validate() {
-	if(ctx.bank.isOpen()) {
-	    System.out.println("TrUE");
-	}
 	return ctx.bank.isOpen() && ctx.backpack.select().id(clay).count() != 28;
     }
 

@@ -16,7 +16,7 @@ public class BankOpen extends Node{
     @Override
     public boolean validate() {
 	return ctx.bank.isOnScreen() 
-		&& !ctx.backpack.select().id(softClay).isEmpty();
+		&& ctx.backpack.select().id(softClay).count() == 28;
     }
 
     @Override
