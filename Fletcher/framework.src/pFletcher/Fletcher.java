@@ -28,7 +28,7 @@ import data.Bolt;
 import data.Log;
 
 @SuppressWarnings("deprecation")
-@Manifest(name = "pFletch AIO", description = "Your AIO Fletching Experience. Supports cutting, stringing, and adding bolt tips!", version = 1.0, topic = 0)
+@Manifest(name = "pFletch AIO", description = "Your AIO Fletching Experience. Supports cutting, stringing, and adding bolt tips!", version = 1.0, topic = 1134830)
 public class Fletcher extends PollingScript implements PaintListener, MessageListener {
     
     public boolean stringBow;
